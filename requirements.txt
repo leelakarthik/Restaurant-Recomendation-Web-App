@@ -1,0 +1,9 @@
+sklearn
+xgboost
+numpy
+pandas
+matplotlib
+seaborn
+suprise
+statistics
+pickle
