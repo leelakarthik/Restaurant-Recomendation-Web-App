@@ -5,6 +5,10 @@ import numpy as np
 import pickle
 import math
 from sklearn.preprocessing import OrdinalEncoder
+import warnings
+def warn(*args, **kwargs):
+    pass
+warnings.warn = warn
 loaded_model = pickle.load(open('model.pkl', 'rb'))
 
 @st.cache
@@ -42,7 +46,7 @@ def main():
         location_type = 2
     latitude_x = st.slider('What is the latitude_x corrdinate?', -91.0, 89.0, 0.1)
     longitude_x = st.slider('What is the longitude_x corrdinate?', -181.0, 179.0, 0.1)
-    id = st.number_input("Enter vendor id")
+    id = st.number_input("Enter vendor id",min_value=0)
     latitude_y = st.slider('What is the latitude_y corrdinate?', -91.0, 89.0, 0.1)
     longitude_y = st.slider('What is the longitude_y corrdinate?', -181.0, 179.0, 0.1)
     vendor_category_en = st.radio('Select Vendor Category:', ['Restaurants','Sweets & Bakes'],horizontal=True)
