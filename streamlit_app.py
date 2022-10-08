@@ -21,8 +21,8 @@ def predict_result(input_data):
 
     prediction = loaded_model.predict(input_data_reshaped)
     if prediction == 0 :
-        return "This restaurant is not recommended 👎🙅‍♂️"
-    return "This restaurant is recommended 👌👌"
+        return "I Would not recommended this restaurant 👎🙅‍♂️"
+    return "I Would recommended restaurant 👌👌"
 
 def main():
     st.title('Restaurant Recommendation Web App')
@@ -81,7 +81,6 @@ def main():
     Result = ''
     
     # creating a button for Prediction
-    
     if st.button('Would you recommend? 🤔'):
         st.balloons()
         Result = predict_result([customer_id, gender, location_number, location_type,
@@ -89,7 +88,11 @@ def main():
        vendor_category_en, delivery_charge, serving_distance, is_open,
        prepration_time, discount_percentage, status_y, verified_y,
        rank, vendor_rating, device_type, distance, preparation_time])
-        st.success(Result)
+        if "not" in Result:
+            st.error(Result)        
+        else:
+            st.success(Result)
+        
 
        
         
