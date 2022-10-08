@@ -83,13 +83,17 @@ def main():
     # creating a button for Prediction
     
     if st.button('Would you recommend? 🤔'):
+        st.balloons()
         Result = predict_result([customer_id, gender, location_number, location_type,
        latitude_x, longitude_x, id, latitude_y, longitude_y,
        vendor_category_en, delivery_charge, serving_distance, is_open,
        prepration_time, discount_percentage, status_y, verified_y,
        rank, vendor_rating, device_type, distance, preparation_time])
+        st.success(Result)
+
+       
         
         
-    st.success(Result)
+    
 if __name__ == '__main__':
     main()
