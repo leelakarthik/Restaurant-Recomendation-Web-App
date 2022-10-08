@@ -44,11 +44,11 @@ def main():
         location_type = 1
     else:
         location_type = 2
-    latitude_x = st.slider('What is the latitude_x co-ordinate?', -91.0, 89.0, 0.1)
-    longitude_x = st.slider('What is the longitude_x co-ordinate?', -181.0, 179.0, 0.1)
+    latitude_x = st.slider('What is your latitude co-ordinate?', -91.0, 89.0, 0.1)
+    longitude_x = st.slider('What is your longitude co-ordinate?', -181.0, 179.0, 0.1)
     id = st.number_input("Enter vendor id",min_value=0)
-    latitude_y = st.slider('What is the latitude_y co-ordinate?', -91.0, 89.0, 0.1)
-    longitude_y = st.slider('What is the longitude_y co-ordinate?', -181.0, 179.0, 0.1)
+    latitude_y = st.slider("What is the vendor's latitude co-ordinate?", -91.0, 89.0, 0.1)
+    longitude_y = st.slider("What is the vendor's longitude co-ordinate?", -181.0, 179.0, 0.1)
     vendor_category_en = st.radio('Select Vendor Category:', ['Restaurants','Sweets & Bakes'],horizontal=True)
     vendor_category_en = 1 if vendor_category_en == 'Restaurants' else 0
     delivery_charge = st.radio('Delivery Charge Applicable?:', ["Yes","No"],horizontal=True)
