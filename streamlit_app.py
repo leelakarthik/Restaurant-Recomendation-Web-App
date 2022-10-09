@@ -167,6 +167,29 @@ if choice == "Home":
             st.success(Result)
 
 elif choice == "Dataset":
+    """Upload a CSV File with following columns ['customer_id', 'gender', 'location_number', 'location_type',
+    'latitude_x', 'longitude_x', 'id', 'latitude_y', 'longitude_y',
+       'vendor_category_en', 'delivery_charge', 'serving_distance', 'is_open',
+       'prepration_time', 'discount_percentage', 'status_y', 'verified_y',
+       'rank', 'vendor_rating', 'device_type', 'distance', 'preparation_time']
+       """
+    "Latitude_x and Longitude_x are customer co-ordinates"
+    "Latitude_y and Longitude_y are vendor co-ordinates"
+    "Status_y and verified_y are vendor status and vendor verified"
+    
+    df = pd.DataFrame(columns=['customer_id', 'gender', 'location_number', 'location_type',
+    'latitude_x', 'longitude_x', 'id', 'latitude_y', 'longitude_y',
+       'vendor_category_en', 'delivery_charge', 'serving_distance', 'is_open',
+       'prepration_time', 'discount_percentage', 'status_y', 'verified_y',
+       'rank', 'vendor_rating', 'device_type', 'distance', 'preparation_time'])
+
+    df = df.to_csv(index=None).encode('utf-8')
+    st.download_button(
+        label="Download Template CSV File",
+        data=df,
+        file_name='Template.csv',
+        mime='text/csv',
+    )
     data_file = st.file_uploader("Upload CSV",type=["csv"])
     if data_file is not None:
         file_details = {"filename":data_file.name, "filetype":data_file.type,
