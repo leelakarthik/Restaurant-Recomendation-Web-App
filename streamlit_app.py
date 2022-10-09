@@ -58,10 +58,9 @@ def data_eda(train):
     bins = [0,3.5,4,4.5,5]
     labels=[1,2,3,4]
     train['vendor_rating']  = pd.cut(train['vendor_rating'], bins=bins, labels=labels, include_lowest=True)
-    bins = [0,6,10,12,100]
-    labels=[1,2,3,4]
+    bins = [0,6,10,12,50,1000]
+    labels=[1,2,3,4,5]
     train['distance']  = pd.cut(train['distance'], bins=bins, labels=labels, include_lowest=True)
-    
     cols=['customer_id', 'gender', 'location_number', 'location_type',
        'latitude_x', 'longitude_x', 'id', 'latitude_y', 'longitude_y',
        'vendor_category_en', 'delivery_charge', 'serving_distance', 'is_open',
@@ -70,6 +69,7 @@ def data_eda(train):
     train = train[cols]
     train = train.loc[0, :].values.tolist()
     # print(train.dtypes)
+    print(train)
     return train
 
 def predict_result(input_data):
