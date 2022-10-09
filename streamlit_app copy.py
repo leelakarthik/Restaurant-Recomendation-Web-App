@@ -94,11 +94,6 @@ def main():
             st.error(Result)        
         else:
             st.success(Result)
-        
-
-       
-        
-        
     
 if __name__ == '__main__':
     main()

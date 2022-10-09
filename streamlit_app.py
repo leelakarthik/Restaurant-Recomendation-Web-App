@@ -58,6 +58,10 @@ def data_eda(train):
     bins = [0,3.5,4,4.5,5]
     labels=[1,2,3,4]
     train['vendor_rating']  = pd.cut(train['vendor_rating'], bins=bins, labels=labels, include_lowest=True)
+    bins = [0,6,10,12,100]
+    labels=[1,2,3,4]
+    train['distance']  = pd.cut(train['distance'], bins=bins, labels=labels, include_lowest=True)
+    
     cols=['customer_id', 'gender', 'location_number', 'location_type',
        'latitude_x', 'longitude_x', 'id', 'latitude_y', 'longitude_y',
        'vendor_category_en', 'delivery_charge', 'serving_distance', 'is_open',
@@ -122,7 +126,7 @@ if choice == "Home":
     delivery_charge = st.radio('Delivery Charge Applicable?:', ["Yes","No"],horizontal=True)
     delivery_charge = 1 if delivery_charge =="Yes" else 0
     serving_distance = st.slider('What is the serving distance?', 0.0, 50.0, step=0.25)
-    bins = [0,6,10,12,50]
+    bins = [0,6,10,12,100]
     labels=[1,2,3,4]
     serving_distance  = pd.cut([serving_distance], bins=bins, labels=labels, include_lowest=True)[0]
     is_open = st.radio('Is vendor Open? :',  ["Yes","No"],horizontal=True)
