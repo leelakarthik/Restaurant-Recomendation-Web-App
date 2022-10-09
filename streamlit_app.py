@@ -68,8 +68,6 @@ def data_eda(train):
        'rank', 'vendor_rating', 'device_type', 'distance', 'preparation_time']
     train = train[cols]
     train = train.loc[0, :].values.tolist()
-    # print(train.dtypes)
-    print(train)
     return train
 
 def predict_result(input_data):
